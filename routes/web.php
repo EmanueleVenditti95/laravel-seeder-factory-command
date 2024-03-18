@@ -18,5 +18,11 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 
+Route::controller(ProductController::class)
+->prefix('produtcs')
+->name('products.')
+->group(function () {
+    Route::get('/','index')->name('home');
+    Route::get('/{product}','show')->name('show');
+});
 
-Route::get('/home',[ProductController::class,'index'])->name('home');
