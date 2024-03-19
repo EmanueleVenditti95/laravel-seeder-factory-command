@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::where('highlighted','1')->get();
         $categories = Category::all();
         return view('products.home', compact('products','categories'));
     }
