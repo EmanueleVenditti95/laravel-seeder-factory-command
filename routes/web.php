@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('home');
+    return redirect()->route('products.home');
 });
 
 Route::controller(ProductController::class)

@@ -40,8 +40,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        $category = Category::where('id',$product->category_id)->get();
 
-        return view('products.show', compact('product'));
+        return view('products.show', compact('product','category'));
     }
 
     /**

@@ -5,9 +5,13 @@
         <div class="row gap-3">
             @foreach ($products as $product)
                 <ul class="card col-2 d-flex-column align-items-center">
-                    <li>{{ strtoupper($product->category->name) }}</li>
+                    <li style = 'color:{{$product->category->color}}'>
+                        {{ strtoupper($product->category->name) }}
+                    </li>
                     <li>${{ $product->cost }}</li>
-                    <li class="fw-bold fs-5">{{ ucwords($product->name) }}</li>
+                    <li class="fw-bold fs-5">
+                        <a href="{{route('products.show',$product)}}">{{ ucwords($product->name) }}</a>
+                    </li>
                     <li class="fs-6 fw-light text-center">{{ $product->description }}</li>
                 </ul>
             @endforeach
@@ -16,12 +20,11 @@
 
 
 
-    <style lang="scss" scoped>
+    <style lang="scss">
         .card {
             border: none;
             background-color: black;
-            color: white;
-            
+            color: white;            
         }
     </style>
 @endsection
