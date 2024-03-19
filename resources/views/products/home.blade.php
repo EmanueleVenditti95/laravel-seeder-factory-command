@@ -12,7 +12,9 @@
                     <li class="fw-bold fs-5">
                         <a href="{{route('products.show',$product)}}">{{ ucwords($product->name) }}</a>
                     </li>
-                    <li class="fs-6 fw-light text-center">{{ $product->description }}</li>
+                    <li class="fs-6 fw-light text-center">
+                        {{ \Illuminate\Support\Str::limit($product->description, 100,'...') }}
+                    </li>
                 </ul>
             @endforeach
         </div>
